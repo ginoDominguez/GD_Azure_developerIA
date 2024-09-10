@@ -1,7 +1,11 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-Console.Write("Congratulations");
-Console.Write(" ");
-Console.Write("You wrote your first lines of code.");
+Console.WriteLine("123");
+Console.WriteLine(123);
+
+Console.WriteLine("true");
+Console.WriteLine(true);
+
+
 
 
