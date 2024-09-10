@@ -7,5 +7,8 @@ Console.WriteLine("true");
 Console.WriteLine(true);
 
 
+Console.Write(121);
+
+
 
 
