@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Text;
 
 
 Console.WriteLine("Generating invoices for customer \"Contoso Corp\" ...\n");
@@ -23,3 +24,16 @@ Console.Write(message);
 
 string projectName = "First-Project";
 Console.WriteLine(@$"C:\Output\{projectName}\Data");
+
+Console.OutputEncoding = Encoding.UTF8;
+projectName = "ACME";
+
+string russianMessage = "\u041f\u043e\u0441\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u0440\u0443\u0441\u0441\u043a\u0438\u0439 \u0432\u044b\u0432\u043e\u0434";
+
+Console.WriteLine("View English output: \n" + @"c:\Exercise\{projectName}\data.txt" + "\n");
+
+
+Console.Write( $"{russianMessage}" + "\n" + @"c:\Exercise\ACME\ru-RU\data.txt" );
+
+
+
