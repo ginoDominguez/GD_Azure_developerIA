@@ -2,6 +2,7 @@
 using System.Text;
 
 
+
 Console.WriteLine("Generating invoices for customer \"Contoso Corp\" ...\n");
 Console.WriteLine("Invoice: 1021\t\tComplete!");
 Console.WriteLine("Invoice: 1022\t\tComplete!");
@@ -88,6 +89,15 @@ int  value=1;
 value++;
 
 Console.WriteLine( $"valor : {value}");
+
+
+
+int fahrenheit= 94;
+
+
+Console.WriteLine( "The temperature is: " +  Math.Round( (fahrenheit-32) * ((decimal)5/9),1)  + " Celsius" );
+
+
 
 
 
