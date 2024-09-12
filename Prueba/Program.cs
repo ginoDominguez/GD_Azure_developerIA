@@ -36,4 +36,68 @@ Console.WriteLine("View English output: \n" + @"c:\Exercise\{projectName}\data.t
 Console.Write( $"{russianMessage}" + "\n" + @"c:\Exercise\ACME\ru-RU\data.txt" );
 
 
+string firstName="Bob";
+int widgetsSold=7;
+
+Console.WriteLine(firstName + " sold" + widgetsSold + " widgets. ");
+
+Console.WriteLine(firstName + " sold" + widgetsSold + 7 + " widgets. ");
+
+Console.WriteLine(firstName + " sold" + widgetsSold + 7 + " widgets. ");
+
+
+
+int num1, num2;
+int suma, resta, multiplicacion;
+decimal division, modulo;
+
+
+num1= 12;
+num2= 7;
+
+suma= num1+ num2;
+resta= num1-num2;
+multiplicacion= num1 * num2;
+
+Console.WriteLine("suma="+ suma);
+Console.WriteLine("resta="+ resta);
+Console.WriteLine("Multiplicacion="+ multiplicacion);
+
+decimal.Parse(num1.ToString());
+
+if( num2>0) 
+{
+    
+    division= decimal.Parse(num1.ToString()) / decimal.Parse(num2.ToString());
+    Console.WriteLine("Division=" + division);
+}
+else Console.WriteLine("Num2 debe ser mayor a 0");
+
+modulo= num1 % num2;
+Console.WriteLine("Modulo =" + modulo);
+
+
+
+
+// utilice operadores compuestos para realziar operaciones:
+
+// 1.- escribir codigo para incementar o disminur valor:
+
+int  value=1;
+
+value++;
+
+Console.WriteLine( $"valor : {value}");
+
+
+
+
+
+
+
+
+
+
+
+
 
