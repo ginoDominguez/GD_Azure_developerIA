@@ -1,23 +1,21 @@
 ﻿
-bool flag = true;
-int value = 10;
-if (flag)
-{
-    
-    Console.WriteLine($"Inside the code block: {value}");
-}
-Console.WriteLine($"Inside the code block: {value}");
 
-
-string[] names = { "Alex", "Eddie", "David", "Michael" };
-for (int i = names.Length - 1; i >= 0; i--)
+for (int i = 0; i <= 100; i++)
 {
-    Console.WriteLine(names[i]);
-}
+    if (i % 3 == 0 && i % 5 == 0)
+    {
+        Console.WriteLine($"{i}\t FizzBuzz");
+    }
+    else
+        {
+            if (i % 3 == 0)
+            { Console.WriteLine($"{i}\tFizz"); }
+            else if (i % 5 == 0)
+            {
+                Console.WriteLine($"{i}\tBuzz");
 
-string[] names = { "Alex", "Eddie", "David", "Michael" };
-foreach (var name in names)
-{
-    // Can't do this:
-    //if (name == "David") name = "Sammy";
+            }
+            else {Console.WriteLine($"{i}");}
+        }
+   
 }
