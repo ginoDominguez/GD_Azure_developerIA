@@ -1,20 +1,43 @@
-﻿Random random = new Random();
-int current = random.Next(1, 11);
+﻿//Role playing game battle challenge
+
+int lifeHeroe=10;
+int lifeMonster=10;
+int attack=0;
+Random dice= new Random();
+
 
 do
 {
-    current = random.Next(1, 11);
+    attack= dice.Next(1, 10);
+    // attack from the heroe 
+    lifeMonster= lifeMonster-attack;
+    
+    Console.WriteLine("Heroe attack:"+attack + " Monster remaining life:" + lifeMonster);
 
-    if (current >= 8) continue;
+    if (lifeMonster>0)
+    {
+         attack= dice.Next(1, 10);
+         lifeHeroe= lifeHeroe-attack;
+         Console.WriteLine("Monster attack:"+attack + " Heroe remaining life:" + lifeHeroe);
 
-    Console.WriteLine(current);
-} while (current != 7);
+    }
 
-/*
-while (current >= 3)
-{
-    Console.WriteLine(current);
-    current = random.Next(1, 11);
+
+
 }
-Console.WriteLine($"Last number: {current}");
-*/
+while(lifeHeroe>0 && lifeMonster>0);
+
+Console.WriteLine($"Heroes end with {lifeHeroe} and Monster end with {lifeMonster}");
+
+if(lifeHeroe>lifeMonster)
+{
+    Console.WriteLine("Heroe wins");
+}
+else
+{
+    Console.WriteLine("Monster wins");
+}
+Console.ReadKey();
+
+
+
