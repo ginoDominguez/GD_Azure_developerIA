@@ -1,28 +1,20 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Runtime.ConstrainedExecution;
 
-int[] pallets = { 1, 2, 3, 4 };
+string pangram = "The quick brown fox jumps over the lazy dog";
+string[] resultado= pangram.Split(" ");
+string output=string.Empty;
 
-Console.WriteLine("Sorted...");
 
-Array.Sort(pallets);
-Array.Clear(pallets, 0, 2);
-foreach (var pallet in pallets)
+for(int i=0; i <= (resultado.Length-1); i++)
 {
-    Console.WriteLine($"-- {pallet}");
+    /*
+   Array.Reverse(resultado);
+   output= new string(resultado[i]);
+    Console.WriteLine(resultado[i]);
+    */
+    output+= string.Join("", resultado[i].ToCharArray().Reverse()) +" ";
 }
+Console.WriteLine(output);
 
 
-
-/////Discover Split() and Join()
-///
-string value = "abc123";
-string value3="";
-char[] valueArray = value.ToCharArray();
-
-
-Array.Reverse(valueArray);
-
-value3 = new string(valueArray);
-
-Console.WriteLine(value3);
-
+//https://learn.microsoft.com/en-us/training/modules/csharp-arrays-operations/5-challenge-1
