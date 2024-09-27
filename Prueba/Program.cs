@@ -1,76 +1,30 @@
-﻿/* Caso ejercicio
-Supongamos que es un candidato en una entrevista para un puesto de programador. El entrevistador quiere que escriba un programa que compruebe si una dirección IPv4 es válida o no. Se le dan las siguientes reglas:
+﻿/*
+Está ayudando a desarrollar un juego de rol multijugador masivo. Cada jugador tiene una estadística de suerte que puede afectar a sus probabilidades de encontrar tesoros raros. Cada día, un jugador puede hablar con un adivino en el juego que revela si su estadística de suerte es alta, baja o neutral.
 
-Una dirección IPv4 válida consta de cuatro números separados por puntos.
-Cada número no debe contener ceros iniciales.
-Cada número debe oscilar entre 0 y 255.
-1.1.1.1 y 255.255.255.255 son ejemplos de direcciones IP válidas.
+Actualmente el juego tiene código para generar la suerte de un jugador, pero no es reutilizable. La tarea consiste en crear un método tellFortune al que se pueda llamar en cualquier momento y reemplazar la lógica existente por una llamada al método.
 
-La dirección IPv4 se proporciona como una cadena. Puede suponer que solo consta de dígitos y puntos (no hay letras en la cadena proporcionada).
+En este desafío, se le proporciona un código de partida. Debe decidir cómo crear el método tellFortune y cómo llamarlo.
 
-¿Cómo abordaría esta tarea?
 */
 
-/*
-if ipAddress consists of 4 numbers
-and
-if each ipAddress number has no leading zeroes
-and
-if each ipAddress number is in range 0 - 255
+Random random = new Random();
+int luck = random.Next(100);
 
-then ipAddress is valid
+string[] text = {"You have much to", "Today is a day to", "Whatever work you do", "This is an ideal time to"};
+string[] good = {"look forward to.", "try new things!", "is likely to succeed.", "accomplish your dreams!"};
+string[] bad = {"fear.", "avoid major decisions.", "may have unexpected outcomes.", "re-evaluate your life."};
+string[] neutral = {"appreciate.", "enjoy time with friends.", "should align with your values.", "get in tune with nature."};
 
-else ipAddress is invalid
-*/
+TellFortune();
 
-string[] ip = {"107.31.1.5", "255.0.0.255", "555..0.555", "255...255"};
-string[] address;
-bool validLength = false;
-bool validZeroes = false;
-bool validRange = false;
 
-foreach (string Ip in ip) 
+void TellFortune()
 {
-    address = Ip.Split(".", StringSplitOptions.RemoveEmptyEntries);
-
-    ValidateLength(); 
-    ValidateZeroes(); 
-    ValidateRange();
-
-    if (validLength && validZeroes && validRange) 
-    {
-        Console.WriteLine($"{Ip} is a valid IPv4 address");
-    } 
-    else 
-    {
-        Console.WriteLine($"{Ip} is an invalid IPv4 address");
-    }
+  Console.WriteLine("A fortune teller whispers the following words:");
+  
+string[] fortune = (luck > 75 ? good : (luck < 25 ? bad : neutral));
+for (int i = 0; i < 4; i++) 
+{
+    Console.Write($"{text[i]} {fortune[i]} ");
 }
-
-void ValidateLength() {
-      validLength = address.Length == 4;
-}
-void ValidateZeroes() {
-   
-    foreach (string number in address) 
-    {
-        if (number.Length > 1 && number.StartsWith("0")) 
-        {
-            validZeroes = false;
-        }
-    }
-
-    validZeroes = true;
-}
-void ValidateRange() {
-   foreach (string number in address) 
-    {
-        int value = int.Parse(number);
-        if (value < 0 || value > 255) 
-        {
-            validRange = false;
-            return;
-        }
-    }
-    validRange = true;
 }
