@@ -1,31 +1,14 @@
-﻿// Metodos con parámetros:
+﻿string[] students = {"Jenna", "Ayesha", "Carlos", "Viktor"};
+Console.Clear();
+DisplayStudents(students);
+Console.WriteLine();
+DisplayStudents(new string[] {"Robert","Vanya"});
 
-int[] schedule = {800, 1200, 1600, 2000};
-
-DisplayAdjustedTimes(schedule, 6, -6);
-
-
-void DisplayAdjustedTimes(int[] times, int currentGMT, int newGMT) 
+void DisplayStudents(string[] students) 
 {
-  int diff = 0;
-if (Math.Abs(newGMT) > 12 || Math.Abs(currentGMT) > 12)
-{
-    Console.WriteLine("Invalid GMT");
+    foreach (string student in students) 
+    {
+        Console.Write($"{student}, ");
+    }
+    Console.WriteLine();
 }
-else if (newGMT <= 0 && currentGMT <= 0 || newGMT >= 0 && currentGMT >= 0) 
-{
-    diff = 100 * (Math.Abs(newGMT) - Math.Abs(currentGMT));
-} 
-else 
-{
-    diff = 100 * (Math.Abs(newGMT) + Math.Abs(currentGMT));
-}
-
-for (int i = 0; i < times.Length; i++) 
-{
-    int newTime = ((times[i] + diff)) % 2400;
-    Console.WriteLine($"{times[i]} -> {newTime}");
-}
-
-}
-
